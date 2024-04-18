@@ -1,0 +1,70 @@
+.navBarContainer {
+	position: fixed;
+	top: 0;
+	height: 100px;
+	width: 100%;
+	border-bottom: 5px solid rgb(165, 164, 164);
+	background-color: rgb(218, 217, 211);
+	display: flex;
+	align-items: center;
+	z-index: 99;
+}
+.titleContainer{
+    background-color: rgb(218, 217, 211);
+    width: 50%;
+    padding-left: 50px;
+}
+.titleText{
+    font-size: 50px;
+    background-color: rgb(218, 217, 211);
+}
+.navbarFunctionContainer{
+    background-color: rgb(218, 217, 211);
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.navbarButton, .navbarButtonDisabled{
+    width: 200px;
+    height: 40px;
+    background-color: rgb(218, 217, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px black;
+    border-radius: 7px;
+}
+.navbarButtonText{
+    background-color: rgb(218, 217, 211);
+}
+.navbarButton:hover{
+    cursor: pointer;
+}
+.navLinkButton{
+    border-radius: 7px;
+}
+@media (max-width: 1042px){
+    .navBarContainer{
+        flex-direction: column;
+        height: 150px;
+        justify-content: center;
+    }
+    .titleContainer, .navbarFunctionContainer{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 100%;
+        padding-left: 0px;
+    }
+}
+@media (max-width: 479px){
+    .titleText{
+        font-size: 30px;
+    }
+    .navbarButton{
+        width: 150px;
+    }
+    .navbarButtonText{
+        font-size: 15px;
+    }
+}
