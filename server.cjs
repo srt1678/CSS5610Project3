@@ -9,7 +9,7 @@ const path = require('path');
 
 const app = express();
 
-const mongoDBEndpoint = process.env.REACT_APP_API_KEY;
+const mongoDBEndpoint = 'mongodb+srv://srt1678:chensteve520@cluster0.eagoj1p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(mongoDBEndpoint, {
 	useNewUrlParser: true,
 });
