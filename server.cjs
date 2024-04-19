@@ -4,11 +4,11 @@ const urlPassword = require("./backend/urlPassword.api.cjs");
 const share = require("./backend/share.api.cjs");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+require('dotenv').config()
 
 const app = express();
 
-const mongoDBEndpoint =
-	"mongodb+srv://srt1678:chensteve520@cluster0.eagoj1p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDBEndpoint = process.env.REACT_APP_API_KEY;
 mongoose.connect(mongoDBEndpoint, {
 	useNewUrlParser: true,
 });

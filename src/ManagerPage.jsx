@@ -364,7 +364,7 @@ function ManagerPage() {
 			</div>
 			<div className="listPageContainer">
 				{isLoading ? (
-					<div className="isLoading">Loading....</div>
+					<></>
 				) : (
 					urlList.map((item, index) => (
 						<div className="urlListContainer">
@@ -420,7 +420,7 @@ function ManagerPage() {
 				)}
 
 				{connectorListLoading ? (
-					<div className="isLoading">Loading....</div>
+					<></>
 				) : (
 					listConnectorUrl.map((item, index) =>	
 						item.map((smallerItem, smallerIndex) => (
