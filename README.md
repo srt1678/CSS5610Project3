@@ -1,7 +1,6 @@
-# CSS5610Project2
+# CSS5610Project3
 ### Bonus Points
 - Early Submission
-- Autoplay Feature
 
 ### Writeup
 1. - The challenges I faced was getting the access to MongoDb and retrieving the data before rendering anything. Often time, storing proper data to mongoDB and fetch the data is confusing and painful.
