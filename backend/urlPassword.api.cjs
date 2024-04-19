@@ -21,8 +21,6 @@ router.post("/", async function (req, res) {
 		const response = await UrlPasswordModel.insertUrlPassword(
 			newUrlPasswordPair
 		);
-		//res.cookie('pokemonOwner', 'yuchen');
-		//res.cookie('favoriteColor', 'yellow');
 		return res.send(response);
 	} catch (error) {
 		res.status(400);
@@ -31,6 +29,19 @@ router.post("/", async function (req, res) {
 });
 
 //http://localhost:8000/api/urlPassword/temp
+router.get("/", async function (req, res) {
+	const username = req.cookies.username;
+	try {
+		const getUserResponse = await UrlPasswordModel.getUrlPasswordByUsername(
+			username
+		);
+		return res.send(getUserResponse);
+	} catch (error) {
+		res.status(400);
+		return res.send(error);
+	}
+});
+
 router.get("/:username", async function (req, res) {
 	const username = req.params.username;
 	try {

@@ -23,13 +23,13 @@ function Login() {
 			}
 		} else {
 			try {
-				const response = await axios.get("/api/user/" + loginUsername);
-				if (response.data.length === 0) {
+				const response = await axios.post("/api/user/login", {username: loginUsername, password: loginPassword});
+				if (response === 'No user found') {
 					setErrorLoginUsername("Error! No user found");
-				} else if (response.data[0].password !== loginPassword) {
+				} else if (response === 'Wrong password') {
 					setErrorLoginPassword("Error! Incorrect Password!");
 				} else {
-					setCurrentUser(response.data[0].username);
+					setCurrentUser(loginUsername);
 					setCurrentUserId(response.data[0]._id);
 					navigate("/Manager");
 				}

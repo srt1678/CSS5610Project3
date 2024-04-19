@@ -62,7 +62,7 @@ function Register() {
 			setCurrentUser(username);
 			navigate('/Manager');
 			try {
-				await axios.post("/api/user", {
+				await axios.post("/api/user/register", {
 					firstName: firstName,
 					lastName: lastName,
 					email: email,

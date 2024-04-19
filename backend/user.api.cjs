@@ -3,7 +3,7 @@ const router = express.Router();
 const UserModel = require('./db/user.model.cjs')
 
 //http://localhost:8000/api/user
-router.post('/', async function(req, res) {
+router.post('/register', async function(req, res) {
     const requestBody = req.body;
 
     if(!requestBody.username || !requestBody.password || !requestBody.firstName || !requestBody.lastName || !requestBody.email) {
@@ -21,8 +21,7 @@ router.post('/', async function(req, res) {
 
     try {
         const response = await UserModel.insertUser(newUser);
-        //res.cookie('pokemonOwner', 'yuchen');
-        //res.cookie('favoriteColor', 'yellow');
+        res.cookie('username', requestBody.username)
         return res.send(response);
     } catch (error) {
         res.status(400);
@@ -40,6 +39,42 @@ router.get('/:username', async function(req, res) {
     } catch (error) {
         res.status(400);
         return res.send(error);
+    }
+})
+
+router.post('/login', async function(req, res){
+    const username = req.body.username;
+    const password = req.body.password;
+    try{
+        const response = await UserModel.getUserByUsername(username);
+        if(!response[0]){
+            res.status(400);
+            return res.send('No user found');
+        }
+        if(password !== response[0].password){
+            res.status(400);
+            return res.send('Wrong password');
+        }
+        res.cookie('username', username);
+        return res.send('Logged in');
+    }catch(error){
+        res.status(400);
+        return res.send('Failed to login: ' + error);
+    }
+})
+
+router.post('/logout', function(request, response){
+    response.clearCookie('username');
+    return response.send('Logged Out')
+});
+
+router.get('/', async function(req, res){
+    const username = req.cookies.username;
+    if(username){
+        return res.send({username: username})
+    }else{
+        res.status(400);
+        return res.send('Not logged in');
     }
 })
 

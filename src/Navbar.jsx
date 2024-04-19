@@ -1,16 +1,19 @@
 import "./Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserPasswordContext } from "./App";
+import axios from "axios";
 
 function Navbar() {
 	const [currentUser, setCurrentUser] = useContext(UserPasswordContext);
 	const navigate = useNavigate();
 
-	const logout = () => {
+	const logout = async () => {
 		setCurrentUser("");
 		navigate('/');
+		await axios.post("/api/user/logout");
 	}
+	
 	return (
 		<>
 			<div className="navBarContainer">
@@ -28,7 +31,7 @@ function Navbar() {
 							<h2 className="navbarButtonText">Logout</h2>
 						</button>
 						<button className="navbarButton" onClick={() => navigate('/Manager')}>
-							<h2 className="navbarButtonText">{currentUser}</h2>
+							<h2 className="navbarButtonText" style={{textDecoration: "underline"}}>{currentUser}</h2>
 						</button>
 					</div>
 				) : (

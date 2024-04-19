@@ -1,6 +1,7 @@
 const express = require("express");
 const user = require("./backend/user.api.cjs");
 const urlPassword = require("./backend/urlPassword.api.cjs");
+const share = require("./backend/share.api.cjs");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/user", user);
 app.use("/api/urlPassword", urlPassword);
+app.use("/api/share", share);
 
 app.listen(8000, function () {
 	console.log("Starting app now...");

@@ -19,6 +19,9 @@ function Home() {
 						based on certain parameters. Finally, users would be
 						able to share their passwords with another user.
 					</p>
+					<p className="introParagraph">
+						After logged in, click on username to navigate to Password Manager Page
+					</p>
 					<div className="introParagraph">Creator: Steve Chen</div>
 				</div>
 			</div>

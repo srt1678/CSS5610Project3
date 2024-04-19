@@ -57,7 +57,7 @@
         padding-left: 0px;
     }
 }
-@media (max-width: 479px){
+@media (max-width: 600px){
     .titleText{
         font-size: 30px;
     }

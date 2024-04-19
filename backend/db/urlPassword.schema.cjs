@@ -14,6 +14,10 @@ module.exports = new Schema(
 			type: String,
 			required: true,
 		},
+		created: {
+			type: Date,
+			default: Date.now
+		}
 	},
 	{ collection: "urlPassword" }
 );
